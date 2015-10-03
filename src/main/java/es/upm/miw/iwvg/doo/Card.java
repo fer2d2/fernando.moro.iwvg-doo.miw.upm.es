@@ -5,7 +5,6 @@ public class Card {
     private int value;
     
     public Card(Suit suit, int value) {
-        super();
         this.suit = suit;
         this.value = value;
     }
