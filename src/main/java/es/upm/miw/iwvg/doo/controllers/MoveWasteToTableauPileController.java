@@ -1,4 +1,4 @@
-package es.upm.miw.iwvg.doo;
+package es.upm.miw.iwvg.doo.controllers;
 
 public class MoveWasteToTableauPileController {
 
