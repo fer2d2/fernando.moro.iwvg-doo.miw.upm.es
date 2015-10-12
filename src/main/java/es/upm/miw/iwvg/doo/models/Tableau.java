@@ -2,7 +2,10 @@ package es.upm.miw.iwvg.doo.models;
 
 import java.util.Stack;
 
-public class Tableau extends CardStack {
+import es.upm.miw.iwvg.doo.models.interfaces.MultiplePushableCardStack;
+import es.upm.miw.iwvg.doo.models.interfaces.MultiplePushableCardStackForView;
+
+public class Tableau extends CardStack implements MultiplePushableCardStackForView, MultiplePushableCardStack {
 
     @Override
     public boolean canPush(Card cardToPush) {

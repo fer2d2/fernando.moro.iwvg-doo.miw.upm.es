@@ -3,9 +3,9 @@ package es.upm.miw.iwvg.doo.models;
 import java.util.Collections;
 import java.util.Stack;
 
-import es.upm.miw.iwvg.doo.models.menumodels.DeckForView;
+import es.upm.miw.iwvg.doo.models.interfaces.SimpleCardStackForView;
 
-public class Deck extends CardStack implements DeckForView {
+public class Deck extends CardStack implements SimpleCardStackForView {
     public Deck() {
         super();
         generateDeck();
@@ -28,10 +28,12 @@ public class Deck extends CardStack implements DeckForView {
         return cards.pop();
     }
 
+    @Override
     public Card peek() {
         return cards.peek();
     }
 
+    @Override
     public boolean hasCards() {
         return (this.cards.size() > 0);
     }

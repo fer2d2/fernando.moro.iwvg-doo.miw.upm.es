@@ -1,3 +1,3 @@
-# Student task: DOO
+# Student task: DOO (Klondike)
 
 - **Author**: Fernando Moro Hernández

@@ -2,7 +2,9 @@ package es.upm.miw.iwvg.doo.models;
 
 import java.util.Stack;
 
-public class Waste extends CardStack {
+import es.upm.miw.iwvg.doo.models.interfaces.SimpleCardStackForView;
+
+public class Waste extends CardStack implements SimpleCardStackForView {
 
     @Override
     public boolean canPush(Card card) {

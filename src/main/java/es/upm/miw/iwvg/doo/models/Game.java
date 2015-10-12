@@ -39,7 +39,7 @@ public class Game {
     }
 
     private Tableau populateTableau(int numberOfCardsInTableau, Tableau currentTableau) {
-        assert(numberOfCardsInTableau > 0 && numberOfCardsInTableau <= MAX_TABLEAUS);
+        assert (numberOfCardsInTableau > 0 && numberOfCardsInTableau <= MAX_TABLEAUS);
         assert currentTableau != null;
 
         for (int i = 0; i < numberOfCardsInTableau; i++) {

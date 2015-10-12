@@ -1,15 +1,16 @@
 package es.upm.miw.iwvg.doo.views.modelviews;
 
 import es.upm.miw.iwvg.doo.models.Card;
-import es.upm.miw.iwvg.doo.models.Foundation;
+import es.upm.miw.iwvg.doo.models.interfaces.FoundationForView;
+import es.upm.miw.iwvg.doo.models.interfaces.MultiplePushableCardStackForView;
 import es.upm.miw.iwvg.doo.util.IO;
 import es.upm.miw.iwvg.doo.views.actionviews.View;
 
 public class FoundationView extends View {
 
-    Foundation foundation;
+    FoundationForView foundation;
 
-    public FoundationView(Foundation foundation) {
+    public FoundationView(FoundationForView foundation) {
         this.foundation = foundation;
     }
 

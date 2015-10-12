@@ -1,6 +1,8 @@
 package es.upm.miw.iwvg.doo.models;
 
-public class Card {
+import es.upm.miw.iwvg.doo.models.interfaces.CardForView;
+
+public class Card implements CardForView {
     private Suit suit;
 
     private CardValue value;
@@ -16,14 +18,17 @@ public class Card {
         this.uncovered = true;
     }
 
+    @Override
     public boolean isUncovered() {
         return this.uncovered;
     }
 
+    @Override
     public Suit getSuit() {
         return suit;
     }
 
+    @Override
     public CardValue getValue() {
         return value;
     }

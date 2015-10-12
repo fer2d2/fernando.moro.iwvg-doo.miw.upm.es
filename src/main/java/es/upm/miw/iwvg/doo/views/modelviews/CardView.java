@@ -1,13 +1,13 @@
 package es.upm.miw.iwvg.doo.views.modelviews;
 
-import es.upm.miw.iwvg.doo.models.Card;
+import es.upm.miw.iwvg.doo.models.interfaces.CardForView;
 import es.upm.miw.iwvg.doo.util.IO;
 import es.upm.miw.iwvg.doo.views.actionviews.View;
 
 public class CardView extends View {
-    Card card;
+    CardForView card;
 
-    public CardView(Card card) {
+    public CardView(CardForView card) {
         this.card = card;
     }
 

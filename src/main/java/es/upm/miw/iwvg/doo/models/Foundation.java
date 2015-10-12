@@ -2,7 +2,11 @@ package es.upm.miw.iwvg.doo.models;
 
 import java.util.Stack;
 
-public class Foundation extends CardStack {
+import es.upm.miw.iwvg.doo.models.interfaces.MultiplePushableCardStack;
+import es.upm.miw.iwvg.doo.models.interfaces.FoundationForView;
+import es.upm.miw.iwvg.doo.models.interfaces.MultiplePushableCardStackForView;
+
+public class Foundation extends CardStack implements FoundationForView, MultiplePushableCardStack {
     private Suit suit;
 
     public Foundation(Suit suit) {
@@ -33,6 +37,7 @@ public class Foundation extends CardStack {
         return true;
     }
 
+    @Override
     public Suit getSuit() {
         return suit;
     }
@@ -52,6 +57,7 @@ public class Foundation extends CardStack {
         return true;
     }
 
+    @Override
     public void push(Stack<Card> cardsToPush) {
         assert cardsToPush != null;
         assert canPush(cardsToPush);
