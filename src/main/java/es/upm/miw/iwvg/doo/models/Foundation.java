@@ -2,9 +2,8 @@ package es.upm.miw.iwvg.doo.models;
 
 import java.util.Stack;
 
-import es.upm.miw.iwvg.doo.models.interfaces.MultiplePushableCardStack;
 import es.upm.miw.iwvg.doo.models.interfaces.FoundationForView;
-import es.upm.miw.iwvg.doo.models.interfaces.MultiplePushableCardStackForView;
+import es.upm.miw.iwvg.doo.models.interfaces.MultiplePushableCardStack;
 
 public class Foundation extends CardStack implements FoundationForView, MultiplePushableCardStack {
     private Suit suit;

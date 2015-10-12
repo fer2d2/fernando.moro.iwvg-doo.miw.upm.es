@@ -1,7 +1,6 @@
 package es.upm.miw.iwvg.doo.views.modelviews;
 
 import es.upm.miw.iwvg.doo.models.Card;
-import es.upm.miw.iwvg.doo.models.Waste;
 import es.upm.miw.iwvg.doo.models.interfaces.SimpleCardStackForView;
 import es.upm.miw.iwvg.doo.util.IO;
 import es.upm.miw.iwvg.doo.views.actionviews.View;
