@@ -2,26 +2,19 @@ package es.upm.miw.iwvg.doo;
 
 import es.upm.miw.iwvg.doo.controllers.GameController;
 import es.upm.miw.iwvg.doo.models.Deck;
-import es.upm.miw.iwvg.doo.models.Foundation;
-import es.upm.miw.iwvg.doo.models.Tableau;
-import es.upm.miw.iwvg.doo.views.GameView;
+import es.upm.miw.iwvg.doo.models.Game;
+import es.upm.miw.iwvg.doo.views.modelviews.GameView;
 
 public class Klondike {
 
     private GameView gameView;
 
-    private Deck deck;
-
-    private Foundation foundation;
-
-    private Tableau tableau;
+    private Game game;
 
     public Klondike() {
-        this.deck = new Deck();
-        this.foundation = new Foundation();
-        this.tableau = new Tableau();
-        
-        GameController gameController = new GameController(this.deck, this.foundation, this.tableau);
+        this.game = new Game(new Deck());
+
+        GameController gameController = new GameController(this.game);
         this.gameView = new GameView(gameController);
     }
 

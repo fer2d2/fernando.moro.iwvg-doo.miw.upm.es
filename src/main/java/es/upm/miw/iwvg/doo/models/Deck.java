@@ -1,16 +1,13 @@
 package es.upm.miw.iwvg.doo.models;
 
+import java.util.Collections;
 import java.util.Stack;
 
-import es.upm.miw.iwvg.menu.models.DeckForView;
+import es.upm.miw.iwvg.doo.models.menumodels.DeckForView;
 
-import java.util.Collections;
-
-public class Deck implements DeckForView {
-    private Stack<Card> cards;
-
+public class Deck extends CardStack implements DeckForView {
     public Deck() {
-        this.cards = new Stack<Card>(); 
+        super();
         generateDeck();
     }
 
@@ -26,15 +23,26 @@ public class Deck implements DeckForView {
         Collections.shuffle(cards);
     }
 
+    @Override
     public Card pop() {
         return cards.pop();
     }
 
-    public Card getCardOnTopWithoutPop() {
-        return cards.get(this.cards.size()-1);
+    public Card peek() {
+        return cards.peek();
     }
-    
+
     public boolean hasCards() {
         return (this.cards.size() > 0);
+    }
+
+    @Override
+    public boolean canPush(Card card) {
+        return false;
+    }
+
+    @Override
+    public boolean canPush(Stack<Card> cards) {
+        return false;
     }
 }

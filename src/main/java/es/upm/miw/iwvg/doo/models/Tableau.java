@@ -1,32 +1,56 @@
 package es.upm.miw.iwvg.doo.models;
 
-import java.util.Map;
 import java.util.Stack;
 
-public class Tableau {
-    
-    private final int TABLEAU_STACKS = 7;
-    
-    private Map<String, Stack<Card>> tableauPiles;
-    
-    private void initializeTableauStacks(Deck deck) {
-        for(int tableauPileNumber=1; tableauPileNumber<=TABLEAU_STACKS; tableauPileNumber++) {
-            Stack<Card> tableauPile = new Stack<Card>();
-            
-            for(int cardInTableuPile=1; cardInTableuPile<=tableauPileNumber; cardInTableuPile++) {
-                Card poppedCard = deck.pop();
-                poppedCard = uncoverIfLastCard(tableauPileNumber, cardInTableuPile, poppedCard);
-                tableauPile.push(poppedCard);
+public class Tableau extends CardStack {
+
+    @Override
+    public boolean canPush(Card cardToPush) {
+        if (this.hasCards()) {
+            Card latestCardInTableau = this.getCards().peek();
+            if (latestCardInTableau.getValue().getNumericValue() != cardToPush.getValue().getNumericValue() - 1) {
+                return false;
             }
-            
-            this.tableauPiles.put("Escalera"+tableauPileNumber, tableauPile);
+        }
+
+        return true;
+    }
+
+    @Override
+    public boolean canPush(Stack<Card> cardsToPush) {
+        Tableau checkerTableau = new Tableau();
+        checkerTableau.push(this.getCards());
+
+        for (Card card : cardsToPush) {
+            if (!checkerTableau.canPush(card)) {
+                return false;
+            } else {
+                checkerTableau.push(card);
+            }
+        }
+        return true;
+    }
+
+    public void push(Stack<Card> cardsToPush) {
+        assert cardsToPush != null;
+        assert canPush(cardsToPush);
+
+        for (Card card : cardsToPush) {
+            this.push(card);
         }
     }
-    
-    private Card uncoverIfLastCard(int tableauPileNumber, int cardInTableuPile, Card poppedCard) {
-        if(cardInTableuPile==tableauPileNumber) {
-            poppedCard.uncover();
+
+    public boolean CanUncoverLastCard() {
+        Card lastCard = this.cards.peek();
+        if (lastCard.isUncovered()) {
+            return false;
         }
-        return poppedCard;
+        return true;
+    }
+
+    public void uncoverLastCard() {
+        Card lastCard = this.cards.pop();
+        lastCard.uncover();
+        this.cards.push(lastCard);
     }
 }
